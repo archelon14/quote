@@ -1,7 +1,6 @@
 //jQuery
 $(document).ready(function(){
-  $("#quote").html(quotes[randomRange(0, 9)]["quote"]);
-  $("#author").html("-" + quotes[randomRange(0, 9)]["author"]);
+  newQuote();
 });
 
 //JavaScript
@@ -54,30 +53,11 @@ var quotes = [
   }
 ];
 
+var quote;
+var author;
 function newQuote(){
-  document.getElementById("quote").innerHTML = quotes[randomRange(0, 9)]["quote"];
-  document.getElementById("author").innerHTML = "-" + quotes[randomRange(0, 9)]["author"];
+  quote = document.getElementById("quote").innerHTML = quotes[randomRange(0, 9)]["quote"];
+  author = document.getElementById("author").innerHTML = quotes[randomRange(0, 9)]["author"];
+
+  $('#twitQuote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + quote + '" ' + author));
 }
-
-//Twitter API
-window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));
-
-//Quote API
-// $.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=" + randomRange(1, 25) + "&callback=", function(a) {
-//   $(".quote").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
-// });

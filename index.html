@@ -10,6 +10,7 @@
   <title>quote</title>
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Custom styles for this template -->
   <link href="css/quote.css" rel="stylesheet">
 </head>
@@ -17,16 +18,26 @@
   <div class="container-fluid text-center">
   <div class="extraSpace"></div>
   <div class="panel panel-default">
-    <h3 id="quote">Quote</h3>
-    <h3 id="author">- Author</h3>
+    <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10"><h3 id="quote">Quote</h3></div>
+      <div class="col-xs-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6"></div>
+      <div class="col-xs-5"><h3 id="author">Author</h3></div>
+      <div class="col-xs-1"></div>
+    </div>
     <div class="space"></div>
     <div class="row">
-      <div class="col-xs-4">
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet" data-size="large">Tweet</a>
+      <div class="col-xs-4" id="twitDiv">
+        <a class="twitter-btn" id="twitQuote" target="_blank" >
+          <i class="fa fa-twitter"></i>
+        </a>
       </div>
       <div class="col-xs-4"></div>
       <div class="col-xs-3">
-        <button class="btn btn-default newQuote" onclick="newQuote()">New Quote</button>
+        <button id="newQuote" class="btn btn-default newQuote" onclick="newQuote()">New Quote</button>
       </div>
       <div class="col-xs-4"></div>
     </div>
